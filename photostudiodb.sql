@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 21, 2026 at 01:13 PM
+-- Generation Time: Jan 22, 2026 at 05:40 AM
 -- Server version: 8.4.3
 -- PHP Version: 8.3.16
 
@@ -44,7 +44,10 @@ INSERT INTO `customer` (`id`, `nama_customer`, `alamat`, `no_telp`, `email`, `je
 (1, 'Andi', 'Jl. Merdeka No.1', '081211122233', 'andi@mail.com', 'Reguler'),
 (2, 'Budi', 'Jl. Merdeka No.2', '081211122244', 'budi@mail.com', 'VIP'),
 (3, 'Citra', 'Jl. Merdeka No.3', '081211122255', 'citra@mail.com', 'Reguler'),
-(4, 'Dewi Ratna', 'Jl. Merdeka No.4', '081211122266', 'dewi@mail.com', 'VIP');
+(4, 'Dewi Ratna', 'Jl. Merdeka No.4', '081211122266', 'dewi@mail.com', 'VIP'),
+(8, 'Agus Pramana', 'Jl. Kd Tahu', '081234567890', 'agus@gmail.com', 'VIP'),
+(9, 'Bayu Kulboi', 'Jl. Asbun', '081234567890', 'bayu@gmail.com', 'Reguler'),
+(10, 'Cindi Maykica', 'Jl. Dongeng', '081234567890', 'cindi@gmail.com', 'Reguler');
 
 -- --------------------------------------------------------
 
@@ -146,8 +149,11 @@ CREATE TABLE `fotografer` (
 INSERT INTO `fotografer` (`id`, `nama_fotografer`, `no_telp`, `email`, `spesialisasi`, `alamat`, `id_user`) VALUES
 (1, 'Fajar Hermawan', '083145678912', 'fajar@mail.com', 'Pernikahan', 'Jl. Melati No.3', 3),
 (2, 'Yuda', '081345678911', 'yuda@mail.com', 'Produk', 'Jl. Sakura No.4', 6),
-(4, 'Novi Andini', '081345678933', 'novi@mail.com', 'Keluarga', 'Jl. Kamboja No.6', 1),
-(5, 'Adit Wijawa', '081345678944', 'adit@mail.com', 'Event', 'Jl. Teratai No.7', 1);
+(4, 'Novi Andini', '081345678933', 'novi@mail.com', 'Keluarga', 'Jl. Kamboja No.6', 13),
+(5, 'Adit Wijawa', '081345678944', 'adit@mail.com', 'Event', 'Jl. Teratai No.7', 5),
+(8, 'Faisal', '081234567890', 'faisal@gmail.com', 'Event', 'Jl. Melati No. 5', 14),
+(9, 'Habiel Khafi', '082255668778', 'Habielsky004@gmail.com', 'Wisuda', 'Jl. Pandawa', 1),
+(10, 'Rina Zaukiah', '082134567891', 'rina@gmail.com', 'Pernikahan', 'Jl. Lupa', 2);
 
 -- --------------------------------------------------------
 
@@ -172,7 +178,10 @@ INSERT INTO `jadwal_foto` (`id`, `tanggal`, `jenis_sesi`, `status`, `id_fotograf
 (1, '2025-10-15', 'Studio Portrait', 'Selesai', 1, 1),
 (2, '2025-10-16', 'Outdoor Wedding', 'Selesai', 2, 2),
 (4, '2025-10-18', 'Family Session', 'Selesai', 4, 4),
-(5, '2025-10-19', 'Wisuda', 'Proses', 1, 3);
+(5, '2000-01-01', 'Wisuda', 'Selesai', 1, 3),
+(8, '2000-01-01', 'Pernikahan', 'Selesai', 10, 10),
+(9, '2000-01-01', 'Wisuda', 'Selesai', 9, 9),
+(10, '2000-01-01', 'Event', 'Selesai', 8, 8);
 
 -- --------------------------------------------------------
 
@@ -221,7 +230,9 @@ INSERT INTO `pembelian` (`id`, `tanggal`, `metode_bayar`, `status`, `total`, `id
 (2, '2025-10-02', 'Tunai', 'Selesai', 1000000, 1, 2),
 (3, '2025-10-03', 'Transfer', 'Selesai', 750000, 1, 3),
 (4, '2025-10-04', 'Transfer', 'Selesai', 500000, 1, 4),
-(5, '2025-10-05', 'Transfer', 'Selesai', 2000000, 1, 5);
+(5, '2025-10-05', 'Transfer', 'Selesai', 2000000, 1, 5),
+(8, '2026-01-09', 'Qris', 'Selesai', 1500000, 2, 2),
+(10, '2026-01-10', 'Qris', 'Selesai', 3000000, 2, 3);
 
 -- --------------------------------------------------------
 
@@ -247,7 +258,11 @@ CREATE TABLE `penjualan` (
 INSERT INTO `penjualan` (`id`, `tanggal`, `invoice`, `metode_bayar`, `status`, `total`, `id_user`, `id_customer`) VALUES
 (1, '2025-10-10', 1001, 'Tunai', 'Selesai', 50000, 2, 1),
 (2, '2025-10-11', 1002, 'Transfer', 'Selesai', 250000, 2, 2),
-(3, '2025-10-12', 1003, 'Tunai', 'Selesai', 75000, 2, 3);
+(3, '2025-10-12', 1003, 'Tunai', 'Selesai', 75000, 2, 3),
+(6, '2026-01-01', 1004, 'Cash', 'Proses', 200000, 1, 4),
+(7, '2026-01-02', 1005, 'Qris', 'Selesai', 200000, 1, 8),
+(8, '2026-01-03', 1006, 'Qris', 'Proses', 100000, 1, 9),
+(9, '2026-01-04', 1007, 'Transfer', 'Selesai', 100000, 1, 10);
 
 -- --------------------------------------------------------
 
@@ -271,11 +286,13 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id`, `nama_produk`, `deskripsi`, `harga_jual`, `harga_beli`, `stok`, `id_kategori`, `id_suplier`) VALUES
-(1, 'Cetak Foto 10x15', 'Cetak foto ukuran 10x15cm, hasil tajam dan glossy.', 3000, 1500, 500, 1, 1),
+(1, 'Cetak Foto 10x15', 'Cetak foto ukuran 10x15cm, hasil tajam.', 3000, 1500, 500, 1, 1),
 (2, 'Album Premium', 'Album foto hardcover dengan 20 halaman.', 250000, 150000, 20, 2, 2),
 (3, 'Frame Kayu 20x60', 'Bingkai kayu solid dengan kaca bening.', 75000, 40000, 40, 3, 3),
 (4, 'Cetak Kanvas 60x90', 'Cetak foto besar di media kanvas kualitas tinggi.', 350000, 200000, 15, 4, 4),
-(5, 'Kolase Polaroid 9pcs', 'Satu set kolase 9 foto ukuran 3x4 polaroid.', 50000, 25000, 35, 5, 5);
+(5, 'Kolase Polaroid 9pcs', 'Satu set kolase 9 foto ukuran 3x4 polaroid.', 50000, 25000, 35, 5, 5),
+(13, 'Cetak Foto 20x45', 'Cetak foto ukuran 20x45cm, hasil tajam dan glossy.', 10000, 8500, 500, 1, 1),
+(14, 'Frame Kayu 40x80', 'Bingkai kayu solid dengan kaca bening.', 95000, 70000, 40, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -328,11 +345,13 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `nama_user`, `username`, `password`, `hak_akses`, `no_telp`, `email`, `alamat`) VALUES
-(1, 'Habiel Khafi', 'habel', '12345', 'Admin', '081234567890', 'habielsky004@mail.com', 'Jl. Merpati No.1'),
+(1, 'Habiel ', 'habel', '12345', 'Admin', '081234567890', 'habielsky004@mail.com', 'Jl. Merpati No.1'),
 (2, 'Rina Zaukiah', 'rina01', 'abc123', 'Admin', '082134567891', 'rina@mail.com', 'Jl. Anggrek No.2'),
 (3, 'Fajar Hermawan', 'fajar12', 'passf', 'Admin', '083145678912', 'fajar@mail.com', 'Jl. Melati No.3'),
-(5, 'Doni Kaciw', 'doniph', 'passd', 'Fotografer', '082156789014', 'doni@mail.com', 'Jl. Dahlia No.5'),
-(6, 'Yuda', 'yuda11', 'yuda123', 'fotografer', '081345678911', 'yuda@mail.com', 'Jl. Sakura No.4');
+(5, 'Adit', 'Adit', 'passd', 'Fotografer', '082156789014', 'Adit@mail.com', 'Jl. Dahlia No.5'),
+(6, 'Yuda', 'yuda11', 'yuda123', 'Fotografer', '081345678911', 'yuda@mail.com', 'Jl. Sakura No.4'),
+(13, 'Novi Andini', 'Novi', '12345', 'Fotografer', '0812345678', 'novi@gmail.com', 'Jalan Antahberantah'),
+(14, 'Faisal', 'Faisal', 'passf', 'Admin', '083145678912', 'faisal@gmail.com', 'Jl. Melati No.6');
 
 --
 -- Indexes for dumped tables
@@ -433,7 +452,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `detail_pembelian`
@@ -457,13 +476,13 @@ ALTER TABLE `foto`
 -- AUTO_INCREMENT for table `fotografer`
 --
 ALTER TABLE `fotografer`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `jadwal_foto`
 --
 ALTER TABLE `jadwal_foto`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `kategori`
@@ -475,19 +494,19 @@ ALTER TABLE `kategori`
 -- AUTO_INCREMENT for table `pembelian`
 --
 ALTER TABLE `pembelian`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `penjualan`
 --
 ALTER TABLE `penjualan`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `suplier`
@@ -499,7 +518,7 @@ ALTER TABLE `suplier`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Constraints for dumped tables
